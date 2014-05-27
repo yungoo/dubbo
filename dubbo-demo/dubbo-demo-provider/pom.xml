@@ -39,10 +39,50 @@
 			<artifactId>dubbo</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring</artifactId>
-		</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>org.springframework.core</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>org.springframework.web</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>org.springframework.transaction</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>org.springframework.orm</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>org.springframework.jdbc</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>org.springframework.web.servlet</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>org.springframework.context</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>org.springframework.aop</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>org.springframework.expression</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>org.springframework.test</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-webmvc</artifactId>
+</dependency>
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
