@@ -40,43 +40,39 @@
 		</dependency>
 <dependency>
   <groupId>org.springframework</groupId>
-  <artifactId>org.springframework.core</artifactId>
+  <artifactId>spring-core</artifactId>
 </dependency>
 <dependency>
   <groupId>org.springframework</groupId>
-  <artifactId>org.springframework.web</artifactId>
+  <artifactId>spring-web</artifactId>
 </dependency>
 <dependency>
   <groupId>org.springframework</groupId>
-  <artifactId>org.springframework.transaction</artifactId>
+  <artifactId>spring-tx</artifactId>
 </dependency>
 <dependency>
   <groupId>org.springframework</groupId>
-  <artifactId>org.springframework.orm</artifactId>
+  <artifactId>spring-orm</artifactId>
 </dependency>
 <dependency>
   <groupId>org.springframework</groupId>
-  <artifactId>org.springframework.jdbc</artifactId>
+  <artifactId>spring-jdbc</artifactId>
 </dependency>
 <dependency>
   <groupId>org.springframework</groupId>
-  <artifactId>org.springframework.web.servlet</artifactId>
+  <artifactId>spring-context</artifactId>
 </dependency>
 <dependency>
   <groupId>org.springframework</groupId>
-  <artifactId>org.springframework.context</artifactId>
+  <artifactId>spring-aop</artifactId>
 </dependency>
 <dependency>
   <groupId>org.springframework</groupId>
-  <artifactId>org.springframework.aop</artifactId>
+  <artifactId>spring-expression</artifactId>
 </dependency>
 <dependency>
   <groupId>org.springframework</groupId>
-  <artifactId>org.springframework.expression</artifactId>
-</dependency>
-<dependency>
-  <groupId>org.springframework</groupId>
-  <artifactId>org.springframework.test</artifactId>
+  <artifactId>spring-test</artifactId>
 </dependency>
 		<dependency>
 			<groupId>org.javassist</groupId>
