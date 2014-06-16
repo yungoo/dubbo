@@ -15,13 +15,13 @@
  */
 package com.alibaba.dubbo.remoting.http.jetty;
 
-import org.mortbay.jetty.Server;
-import org.mortbay.jetty.nio.SelectChannelConnector;
-import org.mortbay.jetty.servlet.ServletHandler;
-import org.mortbay.jetty.servlet.ServletHolder;
-import org.mortbay.thread.QueuedThreadPool;
+import org.eclipse.jetty.server.HttpConfiguration;
+import org.eclipse.jetty.server.HttpConnectionFactory;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.ServerConnector;
+import org.eclipse.jetty.servlet.ServletHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
 
-import com.alibaba.dubbo.common.Constants;
 import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.common.logger.Logger;
 import com.alibaba.dubbo.common.logger.LoggerFactory;
@@ -40,27 +40,24 @@ public class JettyHttpServer extends AbstractHttpServer {
         super(url, handler);
         DispatcherServlet.addHttpHandler(url.getPort(), handler);
         
-        int threads = url.getParameter(Constants.THREADS_KEY, Constants.DEFAULT_THREADS);
-        QueuedThreadPool threadPool = new QueuedThreadPool();
-        threadPool.setDaemon(true);
-        threadPool.setMaxThreads(threads);
-        threadPool.setMinThreads(threads);
-
-        SelectChannelConnector connector = new SelectChannelConnector();
+        HttpConfiguration config = new HttpConfiguration();
+        ServerConnector connector = new ServerConnector(server,new HttpConnectionFactory(config));
+        connector.setReuseAddress(true);
+        connector.setIdleTimeout(30000);
+        
         if (! url.isAnyHost() && NetUtils.isValidLocalHost(url.getHost())) {
             connector.setHost(url.getHost());
         }
         connector.setPort(url.getPort());
 
         server = new Server();
-        server.setThreadPool(threadPool);
         server.addConnector(connector);
         
         ServletHandler servletHandler = new ServletHandler();
         ServletHolder servletHolder = servletHandler.addServletWithMapping(DispatcherServlet.class, "/*");
         servletHolder.setInitOrder(2);
         
-        server.addHandler(servletHandler);
+        server.setHandler(servletHandler);
         
         try {
             server.start();
